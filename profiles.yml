@@ -1,0 +1,16 @@
+# Save this as ~/.dbt/profiles.yml on your machine
+# Replace <your_account>, <your_username>, <your_password> with your actual credentials
+
+consulting_firm_dw:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: "YOUR_SNOWFLAKE_ACCOUNT"   # e.g. abc12345.us-west-2
+      user: "YOUR_USERNAME"
+      password: "YOUR_PASSWORD"
+      role: ACCOUNTADMIN
+      database: CONSULTING_DW            # your output database
+      warehouse: COMPUTE_WH
+      schema: PUBLIC
+      threads: 4

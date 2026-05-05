@@ -2,6 +2,5 @@ logs/
 target/
 *.log
 .env
-profiles.yml
 .DS_Store
 .user.yml
