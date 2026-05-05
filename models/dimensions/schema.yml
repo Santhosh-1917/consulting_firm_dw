@@ -1,0 +1,49 @@
+version: 2
+
+models:
+  - name: dim_date
+    description: "Generated date spine 2023-2026. No source table."
+    columns:
+      - name: date_key
+        tests: [unique, not_null]
+
+  - name: dim_project
+    description: "Conformed project dimension. Shared across all datamarts."
+    columns:
+      - name: project_key
+        tests: [unique, not_null]
+      - name: project_type
+        tests:
+          - accepted_values:
+              values: ['Fixed Price', 'Time and Material']
+
+  - name: dim_client
+    description: "Client dimension joined with location for state/city."
+    columns:
+      - name: client_key
+        tests: [unique, not_null]
+
+  - name: dim_business_unit
+    description: "Business unit dimension."
+    columns:
+      - name: business_unit_key
+        tests: [unique, not_null]
+
+  - name: dim_consultant
+    description: "SCD Type 2 consultant dimension. One row per title/salary version."
+    columns:
+      - name: consultant_key
+        description: "Surrogate key — unique per consultant version (from title history record_id)"
+        tests: [unique, not_null]
+
+  - name: dim_deliverable
+    description: "Deliverable dimension with status and pricing."
+    columns:
+      - name: deliverable_key
+        tests: [unique, not_null]
+
+  - name: dim_title
+    description: "Simple title lookup (T1-T6)."
+    columns:
+      - name: title_key
+        tests: [unique, not_null]

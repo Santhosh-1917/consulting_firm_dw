@@ -1,0 +1,75 @@
+version: 2
+
+models:
+  - name: stg_project
+    description: "Cleaned PROJECT table. Type standardized: Fixed + Fixed Price → Fixed Price"
+    columns:
+      - name: project_id
+        tests: [unique, not_null]
+      - name: project_type
+        tests:
+          - accepted_values:
+              values: ['Fixed Price', 'Time and Material']
+
+  - name: stg_client
+    columns:
+      - name: client_id
+        tests: [unique, not_null]
+
+  - name: stg_consultant
+    columns:
+      - name: consultant_id
+        tests: [unique, not_null]
+
+  - name: stg_deliverable
+    columns:
+      - name: deliverable_id
+        tests: [unique, not_null]
+      - name: project_id
+        tests: [not_null]
+
+  - name: stg_consultant_deliverable
+    description: "Daily work log — hours per consultant per deliverable per day"
+    columns:
+      - name: record_id
+        tests: [unique, not_null]
+
+  - name: stg_consultant_title_history
+    description: "Title/salary history with derived end_date via LEAD()"
+    columns:
+      - name: record_id
+        tests: [unique, not_null]
+
+  - name: stg_project_expense
+    columns:
+      - name: record_id
+        tests: [unique, not_null]
+
+  - name: stg_payroll
+    columns:
+      - name: record_id
+        tests: [unique, not_null]
+
+  - name: stg_project_billing_rate
+    description: "Billing rates per project per title — mostly T&M projects"
+
+  - name: stg_business_unit
+    columns:
+      - name: business_unit_id
+        tests: [unique, not_null]
+
+  - name: stg_location
+    columns:
+      - name: location_id
+        tests: [unique, not_null]
+
+  - name: stg_title
+    columns:
+      - name: title_id
+        tests: [unique, not_null]
+
+  - name: stg_non_billable_hours
+  - name: stg_indirect_costs
+  - name: stg_project_team
+  - name: stg_client_feedback
+  - name: stg_feedback_responses

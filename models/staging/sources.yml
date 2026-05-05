@@ -1,0 +1,67 @@
+version: 2
+
+sources:
+  # Primary source — the UPDATED database
+  - name: consulting
+    database: FCQRYRK_JF44780_ISE558_SHARE_UPDATED
+    schema: CONSULTING_UPDATED
+    description: "Consulting firm operational database (updated version)"
+    tables:
+      - name: BUSINESSUNIT
+        description: "Geographic business units"
+      - name: CLIENT
+        description: "Client master data"
+      - name: CLIENT_FEEDBACK
+        description: "Client satisfaction survey responses"
+      - name: CONSULTANT
+        description: "Consultant master data"
+      - name: CONSULTANTDELIVERABLE
+        description: "Daily hours logged by consultants on deliverables"
+      - name: CONSULTANTTITLEHISTORY
+        description: "Consultant title and salary change history"
+      - name: DELIVERABLE
+        description: "Project deliverables with price, dates, status"
+      - name: FEEDBACK_RESPONSES
+        description: "Individual question-level feedback responses"
+      - name: INDIRECT_COSTS
+        description: "Monthly indirect overhead costs by business unit"
+      - name: LOCATION
+        description: "Office locations (state, city)"
+      - name: NON_BILLABLE_HOURS
+        description: "Monthly billable vs non-billable hours per consultant"
+      - name: PAYROLL
+        description: "Payroll payment records"
+      - name: PROJECT
+        description: "Projects with budget, dates, status, progress"
+      - name: PROJECTBILLINGRATE
+        description: "Hourly billing rates per project per title (mainly T&M)"
+      - name: PROJECTEXPENSE
+        description: "Expense line items charged to projects/deliverables"
+      - name: PROJECTTEAM
+        description: "Consultant role assignments on projects"
+      - name: TITLE
+        description: "Consultant title lookup (T1-T6)"
+
+  # Initial snapshot — for comparison/testing
+  - name: consulting_initial
+    database: FCQRYRK_JF44780_ISE558_SHARE
+    schema: CONSULTING
+    description: "Consulting firm operational database (initial version)"
+    tables:
+      - name: BUSINESSUNIT
+      - name: CLIENT
+      - name: CLIENT_FEEDBACK
+      - name: CONSULTANT
+      - name: CONSULTANTDELIVERABLE
+      - name: CONSULTANTTITLEHISTORY
+      - name: DELIVERABLE
+      - name: FEEDBACK_RESPONSES
+      - name: INDIRECT_COSTS
+      - name: LOCATION
+      - name: NON_BILLABLE_HOURS
+      - name: PAYROLL
+      - name: PROJECT
+      - name: PROJECTBILLINGRATE
+      - name: PROJECTEXPENSE
+      - name: PROJECTTEAM
+      - name: TITLE
